@@ -68,6 +68,7 @@ Rails.application.routes.draw do
         end
 
         resources :verbs
+        resources :nouns
       end
     end
   end
