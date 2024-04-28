@@ -1,0 +1,99 @@
+en:
+  acts: &acts
+    label: &label Acts
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-bolt
+    buttons: &buttons
+      new: Add New Act
+      create: Create Act
+      edit: Edit Act
+      update: Update Act
+      destroy: Remove Act
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{act_name}? This will also remove any child resources and can't be undone.
+    act:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Act ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+        api_title: *description
+        api_description: *description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Acts"
+      index: "List Acts"
+      create: "Add a New Act"
+      member_actions: "Actions for an Individual Act"
+      show: "Retrieve a Act"
+      update: "Update a Act"
+      destroy: "Delete a Act"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Acts"
+      contexts:
+        team:
+          header: Acts
+          description: Below is a list of Acts that have been added for %{team_name}.
+          description_empty: No Acts have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{act_name}"
+      header: Act Details
+      description: Below are the details we have for %{act_name}.
+      manage_description: You'll also find options for updating these details or removing %{act_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Act for %{team_name}"
+      header: New Act Details
+      description: Please provide the details of the new Act you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{act_name}"
+      header: Edit Act Details
+      description: You can update the details or settings for %{act_name} below.
+      form: *form
+    notifications:
+      created: Act was successfully created.
+      updated: Act was successfully updated.
+      destroyed: Act was successfully destroyed.
+  account:
+    acts: *acts
+  activerecord:
+    attributes:
+      act:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

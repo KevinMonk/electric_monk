@@ -33,6 +33,7 @@ shallow do
 
       resources :verbs
       resources :nouns
+      resources :acts
     end
   end
 end
