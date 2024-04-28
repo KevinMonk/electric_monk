@@ -37,6 +37,14 @@ en:
         heading: *description
         api_title: *description
         api_description: *description
+      subject_id: &subject
+        _: &subject_id Subject
+        label: *subject_id
+        heading: *subject_id
+        api_title: *subject_id
+        api_description: *subject_id
+        placeholder: None
+      subject: *subject
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -94,6 +102,7 @@ en:
     attributes:
       verb:
         name: *name
+        subject_id: *subject_id
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

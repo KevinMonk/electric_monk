@@ -4,6 +4,7 @@ class Verb < ApplicationRecord
   # 🚅 add attribute accessors above.
 
   belongs_to :team
+  belongs_to :subject, class_name: "Noun", optional: true
   # 🚅 add belongs_to associations above.
 
   # 🚅 add has_many associations above.
@@ -14,11 +15,16 @@ class Verb < ApplicationRecord
   # 🚅 add scopes above.
 
   validates :name, presence: true
+  validates :subject, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
+
+  def valid_subjects
+    team.nouns
+  end
 
   # 🚅 add methods above.
 end

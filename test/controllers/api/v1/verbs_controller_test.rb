@@ -32,6 +32,7 @@ def assert_proper_object_serialization(verb_data)
   verb = Verb.find(verb_data["id"])
 
   assert_equal_or_nil verb_data['name'], verb.name
+  assert_equal_or_nil verb_data['subject_id'], verb.subject_id
   # 🚅 super scaffolding will insert new fields above this line.
 
   assert_equal verb_data["team_id"], verb.team_id
