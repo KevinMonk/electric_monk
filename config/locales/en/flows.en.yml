@@ -1,0 +1,99 @@
+en:
+  flows: &flows
+    label: &label Flows
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-direction
+    buttons: &buttons
+      new: Add New Flow
+      create: Create Flow
+      edit: Edit Flow
+      update: Update Flow
+      destroy: Remove Flow
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{flow_name}? This will also remove any child resources and can't be undone.
+    flow:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Flow ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+        api_title: *description
+        api_description: *description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Flows"
+      index: "List Flows"
+      create: "Add a New Flow"
+      member_actions: "Actions for an Individual Flow"
+      show: "Retrieve a Flow"
+      update: "Update a Flow"
+      destroy: "Delete a Flow"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Flows"
+      contexts:
+        team:
+          header: Flows
+          description: Below is a list of Flows that have been added for %{team_name}.
+          description_empty: No Flows have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{flow_name}"
+      header: Flow Details
+      description: Below are the details we have for %{flow_name}.
+      manage_description: You'll also find options for updating these details or removing %{flow_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Flow for %{team_name}"
+      header: New Flow Details
+      description: Please provide the details of the new Flow you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{flow_name}"
+      header: Edit Flow Details
+      description: You can update the details or settings for %{flow_name} below.
+      form: *form
+    notifications:
+      created: Flow was successfully created.
+      updated: Flow was successfully updated.
+      destroyed: Flow was successfully destroyed.
+  account:
+    flows: *flows
+  activerecord:
+    attributes:
+      flow:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

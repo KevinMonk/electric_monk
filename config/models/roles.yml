@@ -1,5 +1,6 @@
 default:
   models:
+    Flow: read
     Act: read
     Noun: read
     Verb: read
@@ -31,6 +32,7 @@ admin:
     - admin
     - editor
   models:
+    Flow: manage
     Act: manage
     Noun: manage
     Verb: manage

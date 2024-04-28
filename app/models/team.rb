@@ -8,6 +8,7 @@ class Team < ApplicationRecord
   has_many :verbs, dependent: :destroy, enable_cable_ready_updates: true
   has_many :nouns, dependent: :destroy, enable_cable_ready_updates: true
   has_many :acts, dependent: :destroy, enable_cable_ready_updates: true
+  has_many :flows, dependent: :destroy, enable_cable_ready_updates: true
   # 🚅 add has_many associations above.
 
   # 🚅 add oauth providers above.

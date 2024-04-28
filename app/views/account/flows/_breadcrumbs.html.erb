@@ -1,0 +1,8 @@
+<% flow ||= @flow %>
+<% team ||= @team || flow&.team %>
+<%= render 'account/teams/breadcrumbs', team: team %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, team, :flows] %>
+<% if flow&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: flow.label_string, url: [:account, flow] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'flows' %>

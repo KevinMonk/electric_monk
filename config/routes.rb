@@ -70,6 +70,7 @@ Rails.application.routes.draw do
         resources :verbs
         resources :nouns
         resources :acts
+        resources :flows
       end
     end
   end
