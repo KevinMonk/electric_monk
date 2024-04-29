@@ -34,6 +34,7 @@ def assert_proper_object_serialization(operand_data)
   operand = Operand.find(operand_data["id"])
 
   assert_equal_or_nil operand_data['name'], operand.name
+  assert_equal_or_nil operand_data['noun_id'], operand.noun_id
   # 🚅 super scaffolding will insert new fields above this line.
 
   assert_equal operand_data["act_id"], operand.act_id

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_123003) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_123343) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -221,7 +221,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_123003) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "noun_id"
     t.index ["act_id"], name: "index_operands_on_act_id"
+    t.index ["noun_id"], name: "index_operands_on_noun_id"
   end
 
   create_table "scaffolding_absolutely_abstract_creative_concepts", force: :cascade do |t|
@@ -412,6 +414,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_123003) do
   add_foreign_key "oauth_applications", "teams"
   add_foreign_key "oauth_stripe_accounts", "users"
   add_foreign_key "operands", "acts"
+  add_foreign_key "operands", "nouns"
   add_foreign_key "scaffolding_absolutely_abstract_creative_concepts", "teams"
   add_foreign_key "scaffolding_completely_concrete_tangible_things", "scaffolding_absolutely_abstract_creative_concepts", column: "absolutely_abstract_creative_concept_id"
   add_foreign_key "scaffolding_completely_concrete_tangible_things_assignments", "memberships"
