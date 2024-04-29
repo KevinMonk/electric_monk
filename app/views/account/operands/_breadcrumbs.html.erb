@@ -1,0 +1,8 @@
+<% operand ||= @operand %>
+<% act ||= @act || operand&.act %>
+<%= render 'account/acts/breadcrumbs', act: act %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, act, :operands] %>
+<% if operand&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: operand.label_string, url: [:account, operand] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'operands' %>

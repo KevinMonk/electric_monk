@@ -26,6 +26,7 @@ components:
     <%= automatic_components_for Noun %>
     <%= automatic_components_for Act %>
     <%= automatic_components_for Flow %>
+    <%= automatic_components_for Operand %>
     <%# 🚅 super scaffolding will insert new components above this line. %>
   parameters:
     id:
@@ -64,4 +65,5 @@ paths:
   <%= automatic_paths_for Noun, Team %>
   <%= automatic_paths_for Act, Verb %>
   <%= automatic_paths_for Flow, Act %>
+  <%= automatic_paths_for Operand, Act %>
   <%# 🚅 super scaffolding will insert new paths above this line. %>
