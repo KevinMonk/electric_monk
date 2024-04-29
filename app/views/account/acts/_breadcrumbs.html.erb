@@ -1,0 +1,8 @@
+<% act ||= @act %>
+<% verb ||= @verb || act&.verb %>
+<%= render 'account/verbs/breadcrumbs', verb: verb %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, verb, :acts] %>
+<% if act&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: act.label_string, url: [:account, act] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'acts' %>

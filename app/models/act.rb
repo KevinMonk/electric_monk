@@ -1,14 +1,14 @@
-class Verb < ApplicationRecord
+class Act < ApplicationRecord
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.
 
-  belongs_to :team
+  belongs_to :verb
   # 🚅 add belongs_to associations above.
 
-  has_many :acts, dependent: :destroy
   # 🚅 add has_many associations above.
 
+  has_one :team, through: :verb
   has_rich_text :description
   # 🚅 add has_one associations above.
 
