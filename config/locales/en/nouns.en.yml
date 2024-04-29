@@ -1,0 +1,99 @@
+en:
+  nouns: &nouns
+    label: &label Nouns
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-package
+    buttons: &buttons
+      new: Add New Noun
+      create: Create Noun
+      edit: Edit Noun
+      update: Update Noun
+      destroy: Remove Noun
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{noun_name}? This will also remove any child resources and can't be undone.
+    noun:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Noun ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+        api_title: *description
+        api_description: *description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Nouns"
+      index: "List Nouns"
+      create: "Add a New Noun"
+      member_actions: "Actions for an Individual Noun"
+      show: "Retrieve a Noun"
+      update: "Update a Noun"
+      destroy: "Delete a Noun"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Nouns"
+      contexts:
+        team:
+          header: Nouns
+          description: Below is a list of Nouns that have been added for %{team_name}.
+          description_empty: No Nouns have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{noun_name}"
+      header: Noun Details
+      description: Below are the details we have for %{noun_name}.
+      manage_description: You'll also find options for updating these details or removing %{noun_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Noun for %{team_name}"
+      header: New Noun Details
+      description: Please provide the details of the new Noun you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{noun_name}"
+      header: Edit Noun Details
+      description: You can update the details or settings for %{noun_name} below.
+      form: *form
+    notifications:
+      created: Noun was successfully created.
+      updated: Noun was successfully updated.
+      destroyed: Noun was successfully destroyed.
+  account:
+    nouns: *nouns
+  activerecord:
+    attributes:
+      noun:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at

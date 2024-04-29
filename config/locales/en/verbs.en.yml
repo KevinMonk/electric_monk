@@ -1,0 +1,99 @@
+en:
+  verbs: &verbs
+    label: &label Verbs
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: ti ti-control-forward
+    buttons: &buttons
+      new: Add New Verb
+      create: Create Verb
+      edit: Edit Verb
+      update: Update Verb
+      destroy: Remove Verb
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{verb_name}? This will also remove any child resources and can't be undone.
+    verb:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Verb ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+        api_title: *name
+        api_description: *name
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+        api_title: *description
+        api_description: *description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Verbs"
+      index: "List Verbs"
+      create: "Add a New Verb"
+      member_actions: "Actions for an Individual Verb"
+      show: "Retrieve a Verb"
+      update: "Update a Verb"
+      destroy: "Delete a Verb"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Verbs"
+      contexts:
+        team:
+          header: Verbs
+          description: Below is a list of Verbs that have been added for %{team_name}.
+          description_empty: No Verbs have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{verb_name}"
+      header: Verb Details
+      description: Below are the details we have for %{verb_name}.
+      manage_description: You'll also find options for updating these details or removing %{verb_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Verb for %{team_name}"
+      header: New Verb Details
+      description: Please provide the details of the new Verb you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{verb_name}"
+      header: Edit Verb Details
+      description: You can update the details or settings for %{verb_name} below.
+      form: *form
+    notifications:
+      created: Verb was successfully created.
+      updated: Verb was successfully updated.
+      destroyed: Verb was successfully destroyed.
+  account:
+    verbs: *verbs
+  activerecord:
+    attributes:
+      verb:
+        name: *name
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
