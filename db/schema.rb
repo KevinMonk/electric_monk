@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_113717) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_114305) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -67,6 +67,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_113717) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "acts", force: :cascade do |t|
+    t.bigint "defining_verb_id", null: false
+    t.bigint "calling_verb_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["calling_verb_id"], name: "index_acts_on_calling_verb_id"
+    t.index ["defining_verb_id"], name: "index_acts_on_defining_verb_id"
   end
 
   create_table "addresses", force: :cascade do |t|
@@ -362,6 +371,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_113717) do
   add_foreign_key "account_onboarding_invitation_lists", "teams"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "acts", "verbs", column: "calling_verb_id"
+  add_foreign_key "acts", "verbs", column: "defining_verb_id"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "account_onboarding_invitation_lists", column: "invitation_list_id"
