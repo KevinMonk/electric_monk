@@ -46,6 +46,7 @@ if defined?(Api::V1::ApplicationController)
           *permitted_fields,
           :name,
           :description,
+          :calling_verb_id,
           # 🚅 super scaffolding will insert new fields above this line.
           *permitted_arrays,
           # 🚅 super scaffolding will insert new arrays above this line.

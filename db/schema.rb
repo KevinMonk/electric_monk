@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_115616) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_115930) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -75,6 +75,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_115616) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "calling_verb_id"
+    t.index ["calling_verb_id"], name: "index_acts_on_calling_verb_id"
     t.index ["verb_id"], name: "index_acts_on_verb_id"
   end
 
@@ -372,6 +374,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_115616) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "acts", "verbs"
+  add_foreign_key "acts", "verbs", column: "calling_verb_id"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "account_onboarding_invitation_lists", column: "invitation_list_id"

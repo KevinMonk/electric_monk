@@ -33,6 +33,7 @@ def assert_proper_object_serialization(act_data)
   act = Act.find(act_data["id"])
 
   assert_equal_or_nil act_data['name'], act.name
+  assert_equal_or_nil act_data['calling_verb_id'], act.calling_verb_id
   # 🚅 super scaffolding will insert new fields above this line.
 
   assert_equal act_data["verb_id"], act.verb_id

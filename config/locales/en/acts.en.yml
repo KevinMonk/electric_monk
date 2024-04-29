@@ -37,6 +37,14 @@ en:
         heading: *description
         api_title: *description
         api_description: *description
+      calling_verb_id: &calling_verb
+        _: &calling_verb_id Calling Verb
+        label: *calling_verb_id
+        heading: *calling_verb_id
+        api_title: *calling_verb_id
+        api_description: *calling_verb_id
+        placeholder: None
+      calling_verb: *calling_verb
       # 🚅 super scaffolding will insert new fields above this line.
       created_at:
         _: &created_at Added
@@ -94,6 +102,7 @@ en:
     attributes:
       act:
         name: *name
+        calling_verb_id: *calling_verb_id
         # 🚅 super scaffolding will insert new activerecord attributes above this line.
         created_at: *created_at
         updated_at: *updated_at

@@ -4,6 +4,7 @@ class Act < ApplicationRecord
   # 🚅 add attribute accessors above.
 
   belongs_to :verb
+  belongs_to :calling_verb, class_name: "Verb", optional: true
   # 🚅 add belongs_to associations above.
 
   # 🚅 add has_many associations above.
@@ -15,11 +16,16 @@ class Act < ApplicationRecord
   # 🚅 add scopes above.
 
   validates :name, presence: true
+  validates :calling_verb, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
+
+  def valid_calling_verbs
+    verb.team.verbs
+  end
 
   # 🚅 add methods above.
 end

@@ -7,6 +7,8 @@
     <% with_field_settings form: form do %>
       <%= render 'shared/fields/text_field', method: :name, options: {autofocus: true} %>
       <%= render 'shared/fields/trix_editor', method: :description %>
+      <%= render 'shared/fields/super_select', method: :calling_verb_id, options: {}, html_options: {},
+        choices: @act.valid_calling_verbs.map { |verb| [verb.label_string, verb.id] } %>
       <%# 🚅 super scaffolding will insert new fields above this line. %>
     <% end %>
 
