@@ -32,7 +32,9 @@ shallow do
       end
 
       resources :verbs do
-        resources :acts
+        resources :acts do
+          resources :flows
+        end
       end
       resources :nouns
     end

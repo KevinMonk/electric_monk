@@ -1,31 +1,30 @@
-class Act < ApplicationRecord
+class Flow < ApplicationRecord
   # 🚅 add concerns above.
 
   # 🚅 add attribute accessors above.
 
-  belongs_to :verb
-  belongs_to :calling_verb, class_name: "Verb", optional: true
+  belongs_to :act
+  belongs_to :to_act, class_name: "Act", optional: true
   # 🚅 add belongs_to associations above.
 
-  has_many :flows, dependent: :destroy
   # 🚅 add has_many associations above.
 
-  has_one :team, through: :verb
+  has_one :team, through: :act
   has_rich_text :description
   # 🚅 add has_one associations above.
 
   # 🚅 add scopes above.
 
   validates :name, presence: true
-  validates :calling_verb, scope: true
+  validates :to_act, scope: true
   # 🚅 add validations above.
 
   # 🚅 add callbacks above.
 
   # 🚅 add delegations above.
 
-  def valid_calling_verbs
-    verb.team.verbs
+  def valid_to_acts
+    act.verb.acts
   end
 
   # 🚅 add methods above.

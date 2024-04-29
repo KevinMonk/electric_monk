@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_04_29_115930) do
+ActiveRecord::Schema[7.1].define(version: 2024_04_29_121915) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -93,6 +93,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_115930) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable"
+  end
+
+  create_table "flows", force: :cascade do |t|
+    t.bigint "act_id", null: false
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "to_act_id"
+    t.index ["act_id"], name: "index_flows_on_act_id"
+    t.index ["to_act_id"], name: "index_flows_on_to_act_id"
   end
 
   create_table "integrations_stripe_installations", force: :cascade do |t|
@@ -375,6 +386,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_04_29_115930) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "acts", "verbs"
   add_foreign_key "acts", "verbs", column: "calling_verb_id"
+  add_foreign_key "flows", "acts"
+  add_foreign_key "flows", "acts", column: "to_act_id"
   add_foreign_key "integrations_stripe_installations", "oauth_stripe_accounts"
   add_foreign_key "integrations_stripe_installations", "teams"
   add_foreign_key "invitations", "account_onboarding_invitation_lists", column: "invitation_list_id"

@@ -1,0 +1,26 @@
+<% act = @act || @act %>
+<% context ||= act %>
+<% collection ||= :flows %>
+<% hide_actions ||= false %>
+<% hide_back ||= false %>
+
+<% with_attribute_settings object: flow do %>
+  <tr data-id="<%= flow.id %>">
+    <%= render "shared/tables/checkbox", object: flow %>
+    <td><%= render 'shared/attributes/text', attribute: :name, url: [:account, flow] %></td>
+    <td><%= render 'shared/attributes/belongs_to', attribute: :to_act %></td>
+    <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <td><%= render 'shared/attributes/date_and_time', attribute: :created_at %></td>
+    <td class="buttons">
+      <% unless hide_actions %>
+        <% if can? :edit, flow %>
+          <%= link_to t('.buttons.shorthand.edit'), [:edit, :account, flow], class: 'button-secondary button-smaller' %>
+        <% end %>
+        <% if can? :destroy, flow %>
+          <%= button_to t('.buttons.shorthand.destroy'), [:account, flow], method: :delete, data: { confirm: t('.buttons.confirmations.destroy', model_locales(flow)) }, class: 'button-secondary button-smaller' %>
+        <% end %>
+        <%# 🚅 super scaffolding will insert new action model buttons above this line. %>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
