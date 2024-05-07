@@ -28,3 +28,14 @@ If this is your first time working on a Bullet Train application, be sure to rev
 Clicking this button will take you to the first step of a process that, when completed, will provision production-grade infrastructure for your Bullet Train application which will cost about **$30/month**.
 
 When you're done deploying to Render, you need to go into "Dashboard" > "web", copy the server URL, and then go into "Env Groups" > "settings" and paste the URL into the value for `BASE_URL`.
+
+### The list of super scaffold commands called
+
+* rails generate super_scaffold Verb Team name:text_field description:trix_editor
+* rails generate super_scaffold Noun Team name:text_field description:trix_editor
+* rails generate super_scaffold Act Verb,Team  name:text_field description:trix_editor
+* rails generate super_scaffold:field Act calling_verb_id:super_select{class_name=Verb}
+* rails generate super_scaffold Flow Act,Verb,Team name:text_field description:trix_editor
+* rails generate super_scaffold:field Flow to_act_id:super_select{class_name=Act}
+* rails generate super_scaffold Operand Act,Verb,Team name:text_field description:trix_editor
+* rails generate super_scaffold:field Operand noun_id:super_select{class_name=Noun}
